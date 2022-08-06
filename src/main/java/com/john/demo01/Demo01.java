@@ -1,5 +1,6 @@
 package com.john.demo01;
 
+import java.util.function.Function;
 import java.util.function.IntBinaryOperator;
 import java.util.function.IntPredicate;
 
@@ -14,6 +15,9 @@ public class Demo01 {
         System.out.println(calculateNum(Integer::sum));
 
         printNum(value -> value % 2 == 0);
+
+        System.out.println();
+        System.out.println(typeConver((Function<String, Integer>) Integer::valueOf));
     }
 
     public static int calculateNum(IntBinaryOperator operator) {
@@ -26,8 +30,13 @@ public class Demo01 {
         int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         for (int i : arr) {
             if (predicate.test(i)) {
-                System.out.print(i+" ");
+                System.out.print(i + " ");
             }
         }
+    }
+
+    public static <R> R typeConver(Function<String, R> function) {
+        String str = "12345";
+        return function.apply(str);
     }
 }
