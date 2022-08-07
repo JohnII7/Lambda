@@ -1,4 +1,4 @@
-package com.john.demo01;
+package com.john.lambda;
 
 import java.util.function.Function;
 import java.util.function.IntBinaryOperator;
