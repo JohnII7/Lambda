@@ -13,10 +13,20 @@ public class StreamDemo {
 //        test1(authors);
 //        test2();
 //        test3();
-        test4();
+//        test4();
+        test5();
+    }
+
+    private static void test5() {
+        // 打印所有作家的姓名
+        getAuthors().stream()
+                .map(Author::getName)
+                .forEach(System.out::println);
+
     }
 
     private static void test4() {
+        // filter
         getAuthors().stream()
                 .filter(author -> author.getName().length() > 1)
                 .forEach(author -> System.out.println(author.getName()));
