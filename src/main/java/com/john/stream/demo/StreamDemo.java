@@ -14,7 +14,14 @@ public class StreamDemo {
 //        test2();
 //        test3();
 //        test4();
-        test5();
+//        test5();
+        test6();
+    }
+
+    private static void test6() {
+        getAuthors().stream()
+                .distinct()
+                .forEach(author -> System.out.println(author.getName()));
     }
 
     private static void test5() {
@@ -64,7 +71,7 @@ public class StreamDemo {
         Author author1 = new Author(1L, "蒙多", 33, "一个从菜刀中明悟哲理的祖安人", null);
         Author author2 = new Author(2L, "亚索", 15, "狂风也追不上他的思考速度", null);
         Author author3 = new Author(3L, "易", 14, "是这个世界在限制他的思维", null);
-        Author author4 = new Author(4L, "易", 14, "是这个世界在限制他的思维", null);
+        Author author4 = new Author(3L, "易", 14, "是这个世界在限制他的思维", null);
 
         List<Book> book1 = new ArrayList<>();
         List<Book> book2 = new ArrayList<>();
