@@ -12,10 +12,18 @@ public class StreamDemo {
         List<Author> authors = getAuthors();
 //        test1(authors);
 //        test2();
-        test3();
+//        test3();
+        test4();
+    }
+
+    private static void test4() {
+        getAuthors().stream()
+                .filter(author -> author.getName().length() > 1)
+                .forEach(author -> System.out.println(author.getName()));
     }
 
     private static void test3() {
+        // 双列stream操作
         Map<String, Integer> map = new HashMap<>();
         map.put("蜡笔小新", 19);
         map.put("黑子", 17);
