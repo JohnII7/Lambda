@@ -15,8 +15,18 @@ public class StreamDemo {
 //        test3();
 //        test4();
 //        test5();
-        test6();
+//        test6();
+        test7();
     }
+
+    private static void test7() {
+        // 对年龄降序去重
+        getAuthors().stream()
+                .distinct()
+                .sorted(Comparator.comparingInt(Author::getAge))
+                .forEach(author -> System.out.println(author.getAge()));
+    }
+
 
     private static void test6() {
         getAuthors().stream()
