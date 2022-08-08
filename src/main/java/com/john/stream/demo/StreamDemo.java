@@ -1,8 +1,6 @@
-package com.john.stream;
+package com.john.stream.demo;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author John117
@@ -12,6 +10,32 @@ import java.util.List;
 public class StreamDemo {
     public static void main(String[] args) {
         List<Author> authors = getAuthors();
+//        test1(authors);
+//        test2();
+        test3();
+    }
+
+    private static void test3() {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("蜡笔小新", 19);
+        map.put("黑子", 17);
+        map.put("日向翔阳", 16);
+        map.entrySet().stream()
+                .filter(stringIntegerEntry -> stringIntegerEntry.getValue() > 17)
+                .forEach(stringIntegerEntry -> System.out.println(stringIntegerEntry.getKey()+"-->"+stringIntegerEntry.getValue()));
+    }
+
+    private static void test2() {
+        // 打印大于3的
+        Integer[] arr = {1, 2, 3, 4, 5};
+        Arrays.stream(arr)
+                .distinct()
+                .filter(integer -> integer > 3)
+                .forEach(System.out::println);
+    }
+
+    // 打印年龄小于18的
+    private static void test1(List<Author> authors) {
         authors.stream()
                 .distinct()
                 .filter(author -> author.getAge() < 18)

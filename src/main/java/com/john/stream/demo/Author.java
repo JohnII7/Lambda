@@ -1,23 +1,25 @@
-package com.john.stream;
+package com.john.stream.demo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 /**
  * @author John117
- * @date 2022/08/07  9:19
+ * @date 2022/08/07  9:17
  * @description
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
-public class Book {
+@EqualsAndHashCode  // 去重
+public class Author {
     private Long id;
     private String name;
-    private String category;
-    private Integer score;
-    private String intro;
+    private Integer age;
+    private  String intro;  // 简介
+    private List<Book> books;
 }
