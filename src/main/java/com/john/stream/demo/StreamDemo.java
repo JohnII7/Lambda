@@ -16,14 +16,30 @@ public class StreamDemo {
 //        test4();
 //        test5();
 //        test6();
-        test7();
+//        test7();
+//        test8();
+    }
+
+    private static void test8() {
+        // 对流中的元素降序去重排序, 打印年龄最大的两个
+        List<Author> authors = getAuthors();
+        authors.stream()
+                .distinct()
+                .sorted()
+                .limit(2)
+                .forEach(author -> System.out.println(author.getName()));
     }
 
     private static void test7() {
         // 对年龄降序去重
         getAuthors().stream()
                 .distinct()
-                .sorted(Comparator.comparingInt(Author::getAge))
+                .sorted(new Comparator<Author>() {
+                    @Override
+                    public int compare(Author o1, Author o2) {
+                        return o2.getAge()-o1.getAge();
+                    }
+                })
                 .forEach(author -> System.out.println(author.getAge()));
     }
 
@@ -57,7 +73,7 @@ public class StreamDemo {
         map.put("日向翔阳", 16);
         map.entrySet().stream()
                 .filter(stringIntegerEntry -> stringIntegerEntry.getValue() > 17)
-                .forEach(stringIntegerEntry -> System.out.println(stringIntegerEntry.getKey()+"-->"+stringIntegerEntry.getValue()));
+                .forEach(stringIntegerEntry -> System.out.println(stringIntegerEntry.getKey() + "-->" + stringIntegerEntry.getValue()));
     }
 
     private static void test2() {
