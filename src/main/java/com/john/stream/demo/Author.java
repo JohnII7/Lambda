@@ -16,10 +16,15 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode  // 去重
-public class Author {
+public class Author implements Comparable<Author> {
     private Long id;
     private String name;
     private Integer age;
     private  String intro;  // 简介
     private List<Book> books;
+
+    @Override
+    public int compareTo(Author o) {
+        return o.getAge() - this.getAge();
+    }
 }

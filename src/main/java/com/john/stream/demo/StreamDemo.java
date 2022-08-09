@@ -18,6 +18,17 @@ public class StreamDemo {
 //        test6();
 //        test7();
 //        test8();
+        test9();
+
+    }
+
+    private static void test9() {
+        // 去重打印除年龄最大作家的其他作家
+        getAuthors().stream()
+                .distinct()
+                .sorted()
+                .skip(1)
+                .forEach(author -> System.out.println(author.getName()));
     }
 
     private static void test8() {
