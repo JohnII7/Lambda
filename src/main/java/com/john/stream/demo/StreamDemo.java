@@ -1,6 +1,8 @@
 package com.john.stream.demo;
 
 import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Stream;
 
 /**
  * @author John117
@@ -18,8 +20,16 @@ public class StreamDemo {
 //        test6();
 //        test7();
 //        test8();
-        test9();
+//        test9();
+        test10();
+    }
 
+    private static void test10() {
+        // 打印所有书籍的名字，去重
+        getAuthors().stream()
+                .flatMap((Function<Author, Stream<Book>>) author -> author.getBooks().stream())
+                .distinct()
+                .forEach(book -> System.out.println(book.getName()));
     }
 
     private static void test9() {
