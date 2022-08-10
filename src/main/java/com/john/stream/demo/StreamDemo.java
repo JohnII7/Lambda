@@ -19,7 +19,16 @@ public class StreamDemo {
 //        test8();
 //        test9();
 //        test10();
-        test11();
+//        test11();
+        test12();
+    }
+
+    private static void test12() {
+        // 输出所有作家名字
+        getAuthors().stream()
+                .map(Author::getName)
+                .distinct()
+                .forEach(System.out::println);
     }
 
     private static void test11() {
