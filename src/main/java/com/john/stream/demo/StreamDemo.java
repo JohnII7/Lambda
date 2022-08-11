@@ -21,7 +21,24 @@ public class StreamDemo {
 //        test10();
 //        test11();
 //        test12();
-        test13();
+//        test13();
+        test14();
+        
+    }
+
+    private static void test14() {
+        // 打印所所有书籍的最高分和最低分
+        Optional<Integer> max = getAuthors().stream()
+                .flatMap(author -> author.getBooks().stream())
+                .map(Book::getScore)
+                .max(Comparator.comparingInt(o -> o));
+        System.out.println(max.get());
+
+        Optional<Integer> min = getAuthors().stream()
+                .flatMap(author -> author.getBooks().stream())
+                .map(Book::getScore)
+                .min(Comparator.comparingInt(o -> o));
+        System.out.println(min.get());
 
     }
 
