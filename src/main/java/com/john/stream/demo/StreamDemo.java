@@ -20,7 +20,18 @@ public class StreamDemo {
 //        test9();
 //        test10();
 //        test11();
-        test12();
+//        test12();
+        test13();
+
+    }
+
+    private static void test13() {
+        // 去重打印所有作家的所有书籍数目
+        long count = getAuthors().stream()
+                .flatMap(author -> author.getBooks().stream())
+                .distinct()
+                .count();
+        System.out.println(count);
     }
 
     private static void test12() {
