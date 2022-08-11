@@ -1,6 +1,7 @@
 package com.john.stream.demo;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author John117
@@ -22,8 +23,33 @@ public class StreamDemo {
 //        test11();
 //        test12();
 //        test13();
-        test14();
-        
+//        test14();
+        test15();
+        test16();
+        test17();
+    }
+
+    private static void test17() {
+        // 获取一个Map集合, map的key为author, value为List<Book>
+        Map<String, List<Book>> collect = getAuthors().stream()
+                .distinct()
+                .collect(Collectors.toMap(Author::getName, Author::getBooks));
+        System.out.println(collect);
+    }
+
+    private static void test16() {
+        // 获取一个书名的Set集合
+        Set<Book> collect = getAuthors().stream()
+                .flatMap(author -> author.getBooks().stream())
+                .collect(Collectors.toSet());
+        System.out.println(collect);
+    }
+
+    private static void test15() {
+        // 获取一个存放作者名字的List集合
+        List<String> collect = getAuthors().stream()
+                .map(Author::getName).toList();
+        System.out.println(collect);
     }
 
     private static void test14() {
@@ -101,7 +127,7 @@ public class StreamDemo {
         // 对年龄降序去重
         getAuthors().stream()
                 .distinct()
-                .sorted((o1, o2) -> o2.getAge()-o1.getAge())
+                .sorted((o1, o2) -> o2.getAge() - o1.getAge())
                 .forEach(author -> System.out.println(author.getAge()));
     }
 
