@@ -24,9 +24,17 @@ public class StreamDemo {
 //        test12();
 //        test13();
 //        test14();
-        test15();
-        test16();
-        test17();
+//        test15();
+//        test16();
+//        test17();
+        test18();
+    }
+
+    private static void test18() {
+        // 判断是否有年龄29以上的作家
+        boolean b = getAuthors().stream()
+                .anyMatch(author -> author.getAge() > 29);
+        System.out.println(b);
     }
 
     private static void test17() {
