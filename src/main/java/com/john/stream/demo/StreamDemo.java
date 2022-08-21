@@ -31,7 +31,29 @@ public class StreamDemo {
 //        test19();
 //        test20();
 //        test21();
-    test22();
+//        test22();
+//        test23();
+//        test24();
+
+    }
+
+    private static void test24() {
+        // reduce求年龄最大值
+        Integer reduce = getAuthors().stream()
+                .map(Author::getAge)
+                .reduce(Integer.MIN_VALUE, (integer, integer2) -> integer < integer2 ? integer2 : integer);
+        System.out.println(reduce);
+
+    }
+
+    private static void test23() {
+        // 使用reduce求所有作者年龄和
+        Integer reduce = getAuthors().stream()
+                .distinct()
+                .map(Author::getAge)
+                .reduce(0, Integer::sum);
+        System.out.println(reduce);
+
     }
 
     private static void test22() {
