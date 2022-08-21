@@ -27,7 +27,14 @@ public class StreamDemo {
 //        test15();
 //        test16();
 //        test17();
-        test18();
+//        test18();
+        test19();
+    }
+
+    private static void test19() {
+        boolean b = getAuthors().stream()
+                .allMatch(author -> author.getAge() >= 18);
+        System.out.println(b);
     }
 
     private static void test18() {
