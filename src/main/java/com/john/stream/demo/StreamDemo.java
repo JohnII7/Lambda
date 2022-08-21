@@ -30,7 +30,15 @@ public class StreamDemo {
 //        test18();
 //        test19();
 //        test20();
-        test21();
+//        test21();
+    test22();
+    }
+
+    private static void test22() {
+        // 输出最小年龄作家姓名
+        // min代替sorted
+        Optional<Author> first = getAuthors().stream().min(Comparator.comparingInt(Author::getAge));
+        first.ifPresent(author -> System.out.println(author.getName()));
     }
 
     private static void test21() {
