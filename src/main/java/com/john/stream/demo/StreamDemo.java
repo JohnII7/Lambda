@@ -29,16 +29,27 @@ public class StreamDemo {
 //        test17();
 //        test18();
 //        test19();
-        test20();
+//        test20();
+        test21();
+    }
+
+    private static void test21() {
+        // 获取任意一个年龄大于18的作家, 如果存在就输出
+        Optional<Author> optionalAuthor = getAuthors().stream()
+                .filter(author -> author.getAge() > 18)
+                .findAny();
+        optionalAuthor.ifPresent(author -> System.out.println(author.getName()));
     }
 
     private static void test20() {
+        // noneMatch
         boolean b = getAuthors().stream()
                 .noneMatch(author -> author.getAge() >= 100);
         System.out.println(b);
     }
 
     private static void test19() {
+        // allMatch
         boolean b = getAuthors().stream()
                 .allMatch(author -> author.getAge() >= 18);
         System.out.println(b);
